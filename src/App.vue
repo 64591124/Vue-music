@@ -1,16 +1,42 @@
 <template>
   <m-header></m-header>
   <tab></tab>
-  <router-view></router-view>
+  <router-view :style="viewStyle" v-slot= "{ Component }">
+    <keep-alive>
+        <component :is="Component"/>
+    </keep-alive>
+  </router-view>
+  <router-view  :style="viewStyle" name="user" v-slot= "{ Component }">
+      <transition appear name="slide">
+        <keep-alive>
+        <component :is="Component"/>
+        </keep-alive>
+      </transition>
+    </router-view>
+  <player></player>
 </template>
 <script>
 import Header from '@/components/header/header'
 import Tab from '@/components/tab/tab'
+import Player from '@/components/player/player'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     MHeader: Header,
-    Tab
+    Tab,
+    Player
+  },
+  computed: {
+    viewStyle() {
+      const bottom = this.playlist.length ? '60px' : 0
+      return {
+        bottom
+      }
+    },
+    ...mapState([
+      'playlist'
+    ])
   }
 }
 </script>
@@ -20,7 +46,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
 }
 

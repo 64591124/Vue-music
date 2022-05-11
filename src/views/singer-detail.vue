@@ -10,21 +10,11 @@
 </template>
 
 <script>
-  // import createDetailComponent from '@/assets/js/create-detail-component'
+  import createDetailComponent from '@/assets/js/create-detail-component'
   import { getSingerDetail } from '@/service/singer'
-  // import { SINGER_KEY } from '@/assets/js/constant'
+  import { SINGER_KEY } from '../assets/js/constant'
 
-  export default {
-    name: 'singer-detail',
-    props: {
-      singer: Object
-      },
-    async created() {
-      const result = await getSingerDetail(this.singer)
-      console.log(result)
-      // this.singer = result.singer
-    }
-  }
+  export default createDetailComponent('singer-detail', SINGER_KEY, getSingerDetail)
 </script>
 
 <style lang="scss" scoped>

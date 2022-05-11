@@ -1,4 +1,5 @@
-import { ref, watch, nextTick, computed } from 'vue'
+import { ref, watch, computed, nextTick } from 'vue'
+
 export default function useFixed(props) {
     const TITLE_HEIGHT = 30
     const groupRef = ref(null)
@@ -19,12 +20,12 @@ export default function useFixed(props) {
         const distanceVal = distance.value
         const diff = (distanceVal > 0 && distanceVal < TITLE_HEIGHT) ? distanceVal - TITLE_HEIGHT : 0
         return {
-            transform: `translate3d(0, ${diff}px, 0)`
+            transform: `translate3d(0,${diff}px,0)`
         }
     })
 
-    watch(() => props.data, async() => {
-        await nextTick
+    watch(() => props.data, async () => {
+        await nextTick()
         calculate()
     })
 
@@ -39,11 +40,12 @@ export default function useFixed(props) {
             }
         }
     })
+
     function calculate() {
         const list = groupRef.value.children
         const listHeightsVal = listHeights.value
         let height = 0
-        // 清空数组
+
         listHeightsVal.length = 0
         listHeightsVal.push(height)
 

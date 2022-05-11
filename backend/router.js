@@ -449,6 +449,7 @@ function registerLyric(app) {
         res.json({
           code: ERR_OK,
           result: {
+            // 解码 Base64第三方库
             lyric: Base64.decode(data.lyric)
           }
         })
@@ -638,8 +639,7 @@ function registerHotKeys(app) {
 // 注册搜索查询接口
 function registerSearch(app) {
   app.get('/api/search', (req, res) => {
-    const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
-
+    const url = 'https://shc.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
     const { query, page, showSinger } = req.query
 
     const data = {
@@ -700,7 +700,6 @@ function registerSearch(app) {
             pic: `https://y.gtimg.cn/music/photo_new/T001R800x800M000${zhida.singermid}.jpg?max_age=2592000`
           }
         }
-
         const { curnum, curpage, totalnum } = songData
         const hasMore = 20 * (curpage - 1) + curnum < totalnum
 

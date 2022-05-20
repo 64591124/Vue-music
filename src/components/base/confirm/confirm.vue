@@ -111,17 +111,19 @@
           align-items: center;
           text-align: center;
           font-size: $font-size-large;
+          border-top: 1px solid $color-background-d;
           .operate-btn {
             flex: 1;
             line-height: 22px;
             padding: 10px 0;
-            border-top: 1px solid $color-background-d;
             color: $color-text-l;
-            &.left {
-              border-right: 1px solid $color-background-d;
-              color: $color-text;
+            border-left: 1px solid $color-background-d;
             }
-          }
+          .operate-btn-left {
+              color: $color-text;
+              width: 50%;
+              line-height: 22px;
+            }
         }
       }
     }

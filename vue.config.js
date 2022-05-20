@@ -25,5 +25,5 @@ module.exports = {
   },
   lintOnSave: false,
   productionSourceMap: false,
-  publicPath: process.env.NODE_ENV === 'production' ? '/music-next/' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/hope-music/' : '/'
 }

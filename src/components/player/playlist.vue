@@ -158,6 +158,8 @@
         if (index === -1) {
           return
         }
+        // console.log('aaaaaa', listRef.value)
+        // console.log(this.$refs.listRef)
         const target = listRef.value.$el.children[index]
 
         scrollRef.value.scroll.scrollToElement(target, 300)

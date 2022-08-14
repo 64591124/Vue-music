@@ -5,10 +5,13 @@
   >
     <div class="bar-inner"
     >
-      <div class="progress"
+    <!-- 黄色进度条 绑定动态样式 -->
+      <div
+      class="progress"
       :style="progressStyle"
       ref="progress"
       ></div>
+      <!-- 按钮 绑定样式 -->
       <div
       class="progress-btn-wrapper"
       :style="btnStyle"
@@ -36,6 +39,7 @@ export default {
   emits: ['progress-changing', 'progress-changed'],
   data() {
     return {
+      // 偏移量
       offset: 0
     }
   },
@@ -81,6 +85,7 @@ export default {
       this.$emit('progress-changed', progress)
     },
     onClick(e) {
+      // 距屏幕两侧距离
         const rect = this.$el.getBoundingClientRect()
         const offsetWidth = e.pageX - rect.left
         const barWidth = this.$el.clientWidth - progressBtnWidth

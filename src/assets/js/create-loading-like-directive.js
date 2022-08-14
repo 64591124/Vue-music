@@ -8,9 +8,6 @@ export default function createLoadingLikeDirective(Comp) {
     mounted(el, binding) {
       // 创建app对象 根组件是Comp（loading）组件
       const app = createApp(Comp)
-      console.log('app', app)
-      console.log('el', el)
-      // console.log('binding', binding.instance.$el)
       // 动态创建一个vue对象 loading组件是要挂到el上  mount返回的是根组件实例
       const instance = app.mount(document.createElement('div'))
       const name = Comp.name

@@ -32,11 +32,13 @@
         query: this.modelValue
       }
     },
+    // 这里不在watch钩子函数中写是因为dobounce内部会访问到this，this指向是不对的
     created() {
       this.$watch('query', debounce(300, (newQuery) => {
         this.$emit('update:modelValue', newQuery.trim())
       }))
-
+      console.log('created', this)
+      // 不是通过输入 外部主动填充也需要观测
       this.$watch('modelValue', (newVal) => {
         this.query = newVal
       })

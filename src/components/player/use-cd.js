@@ -18,7 +18,7 @@ export default function useCd() {
     })
     function syncTransform(wrapper, inner) {
         const wrapperTransform = getComputedStyle(wrapper).transform
-        // 动态获取外层角度
+        // 动态获取内层图片角度
         const innerTransform = getComputedStyle(inner).transform
         wrapper.style.transform = wrapperTransform === 'none'
             ? innerTransform : innerTransform.concat(' ', wrapperTransform) // 角度叠加

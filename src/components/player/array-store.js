@@ -6,7 +6,7 @@ function insertArray(arr, val, compare, maxLen) {
         return
     }
     if (index > 0) {
-        arr.splice(val)
+        arr.splice(val, 1)
     }
     arr.unshift(val)
     if (maxLen && arr.length > maxLen) {

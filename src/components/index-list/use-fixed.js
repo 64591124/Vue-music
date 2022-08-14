@@ -18,7 +18,7 @@ export default function useFixed(props) {
 
     const fixedStyle = computed(() => {
         const distanceVal = distance.value
-        const diff = (distanceVal > 0 && distanceVal < TITLE_HEIGHT) ? distanceVal - TITLE_HEIGHT : 0
+        const diff = (distanceVal > 0 && distanceVal < TITLE_HEIGHT) ? distanceVal - TITLE_HEIGHT - 1 : -1
         return {
             transform: `translate3d(0,${diff}px,0)`
         }

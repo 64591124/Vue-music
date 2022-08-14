@@ -30,6 +30,7 @@ export default function useFavorite() {
     // 判断歌曲是否在收藏列表中
     function isFavorite(song) {
         return favoriteList.value.findIndex((item) => {
+          // item是favoriteList中的每一项 返回true就
           return item.id === song.id
         }) > -1
       }

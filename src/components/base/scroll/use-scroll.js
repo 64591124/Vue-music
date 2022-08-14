@@ -8,8 +8,9 @@ export default function useScroll(wrapperRef, options, emit) {
   const scroll = ref(null)
 
   onMounted(() => {
+    // 挂载的时候计算容器高度和内容高度 这时候内容还没挂载 高度为0
     const scrollVal = scroll.value = new BScroll(wrapperRef.value, {
-      observeDOM: true,
+      observeDOM: true, // 自动监听dom变化 当内容高度超过容器就进行滚动
       ...options
     })
     if (options.probeType > 0) {

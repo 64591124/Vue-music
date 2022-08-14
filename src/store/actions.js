@@ -29,7 +29,6 @@ export function changeMode({ commit, state, getters }, mode) {
   const index = state.playlist.findIndex((song) => {
     return song.id === currentId
   })
-
   commit('setCurrentIndex', index)
   commit('setPlayMode', mode)
 }
